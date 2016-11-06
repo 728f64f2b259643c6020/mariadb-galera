@@ -3,7 +3,7 @@ FROM mariadb:10.1
 RUN set -x \
     && apt-get update \
     && apt-get install -y --no-install-recommends --no-install-suggests \
-      curl \
+      curl git \
     && rm -rf /tmp/* /var/cache/apk/* /var/lib/apt/lists/* \
     && git clone https://github.com/maxhq/zabbix-backup \
     && mv /zabbix-backup/zabbix-mysql-dump /zabbix-backup/zabbix-mariadb-dump
