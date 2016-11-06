@@ -2,7 +2,7 @@
 
 set -e
 set -u
-source ./mariadb-functions.sh
+source ./zabbix-mariadb.sh
 
 # User-provided env variables
 MARIADB_USER=${MARIADB_USER:="admin"}
@@ -15,7 +15,7 @@ MYSQLD_PID_FILE="$VOLUME_HOME/mysql.pid"
 
 # Trap INT and TERM signals to do clean DB shutdown
 trap terminate_db SIGINT SIGTERM
-config_db
+#config_db
 install_db
 tail -F $ERROR_LOG & # tail all db logs to stdout 
 
