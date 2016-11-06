@@ -17,6 +17,9 @@ COPY zabbix/ /usr/local/bin/
 # Add VOLUME to allow backup of data
 VOLUME ["/var/lib/mysql"]
 
+# Set TERM env to avoid mysql client error message "TERM environment variable not set" when running from inside the container
+ENV TERM xterm
+
 EXPOSE 3306 4444 4567 4567/udp 4568
 
 HEALTHCHECK CMD curl -f -o - http://127.0.0.1:8080/ || exit 1
