@@ -72,7 +72,7 @@ case "$1" in
 			"$@" 2>&1
 		exit
 		;;
-	seed)
+	master)
 		MYSQL_MODE_ARGS+=" --wsrep-on=ON --wsrep-new-cluster"
 		# bootstrapping
 		if [ ! -f /var/lib/mysql/skip-cluster-bootstrapping ]; then
