@@ -2,7 +2,7 @@
 
 set -e
 set -u
-source ./zabbix-mariadb.sh
+source zabbix-mariadb.sh
 
 # User-provided env variables
 MARIADB_USER=${MARIADB_USER:="admin"}
