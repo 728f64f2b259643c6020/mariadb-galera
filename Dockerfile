@@ -9,10 +9,8 @@ COPY conf.d/* /etc/mysql/conf.d/
 COPY bin/galera-healthcheck /usr/local/bin/galera-healthcheck
 COPY mysqld.sh /usr/local/bin/mysqld.sh
 COPY bootstrap.sh /usr/local/bin/bootstrap.sh
-COPY zabbix/zabbix.sh /usr/local/bin/zabbix.sh
-COPY zabbix/zabbix-mariadb.sh /usr/local/bin/zabbix-mariadb.sh
-COPY zabbix-backup/get-table-list.pl /usr/local/bin/get-table-list.pl
-COPY zabbix-backup/zabbix-mysql-dump /usr/local/bin/zabbix-mysql-dump
+COPY zabbix/ /usr/local/bin/
+COPY zabbix-backup/ /usr/local/bin/
 
 # Add VOLUME to allow backup of data
 VOLUME ["/var/lib/mysql"]
