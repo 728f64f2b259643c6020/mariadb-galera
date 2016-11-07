@@ -23,5 +23,4 @@ EXPOSE 3306 4444 4567 4567/udp 4568
 HEALTHCHECK CMD curl -f -o - http://127.0.0.1:8080/ || exit 1
 
 ENTRYPOINT ["bootstrap.sh"]
-
-RUN /usr/local/bin/zabbix.sh
+CMD ["/usr/local/bin/zabbix.sh"]
