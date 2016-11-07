@@ -2,17 +2,17 @@ FROM mariadb:10.1
 
 RUN set -x \
     && apt-get update \
-    && apt-get install -y --no-install-recommends --no-install-suggests \
-      curl git \
-    && rm -rf /tmp/* /var/cache/apk/* /var/lib/apt/lists/* \
-    && git clone https://github.com/maxhq/zabbix-backup \
-    && mv /zabbix-backup/zabbix-mysql-dump /zabbix-backup/zabbix-mariadb-dump
+    && apt-get install -y --no-install-recommends --no-install-suggests curl git \
+    && rm -rf /tmp/* /var/cache/apk/* /var/lib/apt/lists/*
 
 COPY conf.d/* /etc/mysql/conf.d/
 COPY bin/galera-healthcheck /usr/local/bin/galera-healthcheck
 COPY mysqld.sh /usr/local/bin/mysqld.sh
 COPY bootstrap.sh /usr/local/bin/bootstrap.sh
-COPY zabbix/ /usr/local/bin/
+COPY zabbix/zabbix.sh /usr/local/bin/zabbix.sh
+COPY zabbix/zabbix-mariadb.sh /usr/local/bin/zabbix-mariadb.sh
+COPY zabbix-backup/get-table-list.pl /usr/local/bin/get-table-list.pl
+COPY zabbix-backup/zabbix-mysql-dump /usr/local/bin/zabbix-mysql-dump
 
 # Add VOLUME to allow backup of data
 VOLUME ["/var/lib/mysql"]
