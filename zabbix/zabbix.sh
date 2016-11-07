@@ -22,7 +22,7 @@ tail -F $ERROR_LOG & # tail all db logs to stdout
 /usr/bin/mysqld_safe & # Launch DB server in the background
 MYSQLD_SAFE_PID=$!
 
-wait_for_db
+#wait_for_db
 secure_and_tidy_db
 show_db_status
 create_admin_user
